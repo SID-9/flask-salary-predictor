@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial</title>
+</head>
+<body>
+    <form action="{{url_for('predict')}}" method = "post">
+        <input type = 'text' name='Age' placeholder='Enter Age : '></input>
+        <input type = 'text' name='Gender' placeholder='Enter Gender : '></input>
+        <input type = 'text' name='Education Level' placeholder='Enter Education Level : '></input>
+        <input type ='text' name = 'Years of Experience' placeholder='Entere Years of Experience : '></input>
+        <button type = 'submit'>Predict</button>
+    </form>
+    {% if prediction_output %}
+    <p>Predicted Salary: ${{ prediction_output }}</p>
+    {% endif %}
+
+    {% if prediction_error %}
+        <p style="color: red;">{{ prediction_error }}</p>
+    {% endif %}
+
+    <h3><br>{{prediction_text}}</h3>
+</body>
+</html>
+
+
